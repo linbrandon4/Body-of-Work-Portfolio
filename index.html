@@ -23,12 +23,99 @@
 
     <section id="about">
         <h2>Portfolio Context</h2>
-        <p></p>
+        <p>
+            Before diving into the data analysis, significant effort was put into preparing the dataset to ensure accuracy and reliability of the results. The raw dataset contained information about property listings in New York City, with various attributes such as price, number of bedrooms, bathrooms, square footage, and additional features like virtual walkthroughs and redesigns. However, to derive meaningful conclusions, several steps were taken to clean and preprocess the data.
+        </p>
+        <h3>Data Cleaning Process</h3>
+        <ul>
+            <li>
+                <strong>Filtering Listings:</strong> Listings missing critical information such as the number of bedrooms, bathrooms, or square footage were removed. Properties with placeholders like "–" in key columns were identified and filtered out.
+            </li>
+            <li>
+                <strong>Converting Boolean Values:</strong> Columns representing features like "Listed By Redfin," "3D Walkthrough," "Floor Plan," "Street View," and "Redesign" were initially recorded as <code>TRUE</code> or <code>FALSE</code>. These were converted to binary values: <code>TRUE</code> → <code>1</code> and <code>FALSE</code> → <code>0</code>.
+            </li>
+            <li>
+                <strong>Handling Outliers and Inconsistencies:</strong> Price outliers that were unrealistically high or low were flagged for potential removal. The dataset was also examined for duplicate rows, which were removed.
+            </li>
+            <li>
+                <strong>Standardizing Units:</strong> Columns were reviewed to ensure consistency in units, such as square footage.
+            </li>
+        </ul>
+        <h3>Defining the Analytical Framework</h3>
+        <p>
+            After cleaning the data, I outlined specific statistical questions to guide the analysis:
+        </p>
+        <ul>
+            <li>What is the relationship between the price of a property and its key attributes, such as the number of bedrooms, bathrooms, and square footage?</li>
+            <li>Do properties with certain features, like virtual walkthroughs or redesigns, correlate with higher prices?</li>
+            <li>How does the presence of listing-specific features (e.g., being listed by Redfin) impact property prices?</li>
+            <li>What are the most significant predictors of property prices in the respective metro city?</li>
+        </ul>
+        <h3>The Process of Analysis</h3>
+        <p>
+            With a clean dataset and clear objectives, I began by visualizing the relationships between variables using Google Sheets. A scatterplot was created to compare property price against the composite number which took into account the number of bedrooms, bathrooms, and square footage. This helped identify general trends and potential outliers in the data.
+        </p>
+        <p>
+            The composite number is calculated by <strong>Bedroom Count + Bathroom Count + (Square Feet * 0.001)</strong>
+        </p>
+        <p>
+            To quantify these relationships, I used the <code>=CORREL</code> function in Google Sheets to calculate the correlation coefficients between property price and each independent variable. This provided a clearer understanding of which attributes were most strongly correlated with price.
+        </p>
+        <p>
+            To further analyze the impact of listing-specific features, such as "Listed By Redfin" or "3D Walkthrough," I developed a Python script. The script performed multivariable regression to quantify the effect of these features on property price while controlling for other variables. The results revealed which features had statistically significant effects and how much they contributed to price variations.
+        </p>
+        <h3>Conclusions and Next Steps</h3>
+        <p>
+            The analysis revealed key insights into the factors influencing property prices, highlighting the importance of features like floor plans and street views while identifying variables with minimal impact. The results provide a foundation for further exploration, including adding geographic and market-level data to refine predictions.
+        </p>
+        <p>     </p>
+        <section id="script">
+            <h2>Python Script</h2>
+            <p>This is the Python script I used to perform multivariable regression analysis on the dataset:</p>
+            <pre>
+                <code>
+                    import pandas as pd
+                    import statsmodels.api as sm
+                    
+                    file_path = "New York City - Sheet.csv" 
+                    data = pd.read_csv(file_path)
+                    
+                    print("Columns in CSV:", data.columns)
+                    
+                    data = data.replace({True: 1, False: 0})
+                    
+                    columns_to_check = ["Cost", "Listed By Redfin", "3D Walkthrough", "Floor Plan", "Street View", "Redeisgn"]
+                    data = data.dropna(subset=columns_to_check)
+                    
+                    for col in columns_to_check:
+                        data[col] = pd.to_numeric(data[col], errors="coerce")
+                    
+                    print("Missing values in relevant columns:", data[columns_to_check].isnull().sum())
+                    
+                    dependent_var = "Cost"  
+                    independent_vars = ["Listed By Redfin", "3D Walkthrough", "Floor Plan", "Street View", "Redeisgn"] 
+                    
+                    y = data[dependent_var]
+                    X = data[independent_vars]
+                    X = sm.add_constant(X)  
+                    
+                    print("Shape of X:", X.shape)
+                    print("Shape of y:", y.shape)
+                    
+                    if X.shape[0] > 0 and y.shape[0] > 0:
+                        model = sm.OLS(y, X).fit()
+                    
+                        print(model.summary())
+                    else:
+                        print("Error: X or y has no data.")
+                </code>
+            </pre>
+        </section>
     </section>
-
+    
     <section id="capstone" class="flex-container">
         <div class="capstone-info">
-            <h2>Capstone Information</h2>
+            <h2>Senior Capstone Information</h2>
             <p><strong>Mentor's Name:</strong> Nan Zhao</p>
             <p><strong>Internship Location:</strong> Scheller College of Business</p>
             <p><strong>Role:</strong> Research Assistant</p>
