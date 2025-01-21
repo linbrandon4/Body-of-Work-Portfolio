@@ -5,10 +5,13 @@ body {
     line-height: 1.6;
 }
 header {
-    background: #333;
-    color: #fff;
+    background: linear-gradient(90deg, #cfd9df, #e2ebf0);
+    color: #333;
     padding: 1em 0;
     text-align: center;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
 }
 
 .nav-links {
@@ -23,56 +26,84 @@ header {
 }
 
 .nav-links a {
-    color: #fff;
+    color: #333;
     text-decoration: none;
     font-size: 1.2em;
+    transition: color 0.3s;
+}
+
+.nav-links a:hover {
+    color: #6c757d;
 }
 
 #hero {
-    background: #f4f4f4;
-    padding: 50px;
+    background: linear-gradient(120deg, #f5f5f5, #e0e0e0);
+    color: #333;
+    padding: 100px 20px;
     text-align: center;
 }
 
-#projects .project {
-    margin: 20px 0;
-    border-bottom: 1px solid #ddd;
-    padding-bottom: 10px;
+#about {
+    margin: 20px;
+    padding: 20px;
+    background: #f9f9f9;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
-form {
-    max-width: 400px;
-    margin: auto;
+.flex-container {
     display: flex;
-    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px;
 }
 
-form label {
-    margin-top: 10px;
+.capstone-info {
+    flex: 1;
+    padding: 20px;
 }
 
-form input, form textarea {
-    margin-top: 5px;
-    padding: 10px;
-    width: 100%;
+.capstone-image {
+    flex: 1;
+    padding: 20px;
+    text-align: center;
+}
+
+.capstone-image img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.portfolio-item {
+    background: #f9f9f9;
     border: 1px solid #ddd;
-    border-radius: 5px;
+    padding: 20px;
+    margin: 20px auto;
+    max-width: 600px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s;
 }
 
-form button {
-    margin-top: 10px;
-    padding: 10px;
-    background: #333;
-    color: #fff;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
+.portfolio-item:hover {
+    transform: scale(1.05);
+}
+
+#capstone {
+    background: #f4f4f4;
+    padding: 40px 20px;
+}
+
+#capstone p {
+    font-size: 1.2em;
+    margin: 10px 0;
 }
 
 footer {
     text-align: center;
     padding: 10px;
-    background: #333;
-    color: #fff;
+    background: #cfd9df;
+    color: #333;
     margin-top: 20px;
 }
