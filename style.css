@@ -155,3 +155,33 @@ footer {
 .portfolio-item h3 a:hover {
     color: #6c757d;
 }
+
+/* Container for the entire page content */
+.container {
+    margin: 0 auto; /* Centers the content horizontally */
+    padding: 20px; /* Adds spacing inside the container */
+    max-width: 800px; /* Limits the width of the content */
+    background: #fff; /* Optional: Sets a background color for contrast */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Optional: Adds a shadow for better appearance */
+    border-radius: 8px; /* Optional: Rounds the corners */
+}
+
+/* Centering the image and its caption */
+.image-container {
+    text-align: center; /* Centers the image and caption */
+    margin-top: 20px;
+}
+
+.image-container img {
+    max-width: 100%; /* Makes the image responsive */
+    height: auto;
+    border-radius: 8px; /* Optional: Rounds the corners of the image */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Adds a slight shadow for better appearance */
+}
+
+.image-container p {
+    font-size: 0.9em;
+    color: #555;
+    margin-top: 10px;
+}
+
