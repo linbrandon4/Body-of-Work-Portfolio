@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portfolio Item 8</title>
+    <title>Portfolio Item 1 - Metro New York City</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -16,16 +16,53 @@
         </nav>
     </header>
 
-    <section id="portfolio-item">
-        <h2>Portfolio Item 8</h2>
-        <p><strong>Description:</strong> A marketing plan for a nonprofit agency created for Marketing 425.</p>
-        <p><strong>Competencies:</strong></p>
-        <ul>
-            <li>Developed strategic planning skills.</li>
-            <li>Enhanced market research abilities.</li>
-            <li>Improved collaboration and communication with stakeholders.</li>
-        </ul>
-    </section>
+    <div class="container">
+        <section id="portfolio-item">
+            <h2>Portfolio Item 1 - Metro New York City</h2>
+            <p>Questions and Reflection:</p>
+            <ul>
+                <li>What is the relationship between the price of a property and its key attributes, such as the number of bedrooms, bathrooms, and square footage?</li>
+                <li>Do listings with certain features, like virtual walkthroughs or redesigns, correlate with higher prices?</li>
+            </ul>
+
+            <p>Before data cleaning the spreadsheet had <strong>813</strong> listings, after data cleaning the spreadsheet had <strong>537</strong> listings</p>
+            <p>The data cleaning procedure is outlined in the Portfolio Context</p>
+            <p>Dataset before cleaned: https://docs.google.com/spreadsheets/d/1n6gJACsec-80nPqTQbnsOhwIu9KnIEUdzrWOJG4Yw6w/edit?usp=sharing</p>
+            <p>Dataset after cleaned: https://docs.google.com/spreadsheets/d/1wvle2tBjNaPu9xej15l8ApPhxpWo1SzlQ4MueQdraWE/edit?usp=sharing</p>
+            <br></br>
+            <h3>What is the relationship between the price of a property and its key attributes, such as the number of bedrooms, bathrooms, and square footage?</h3>
+            <p>New York City has a mean composite score of <strong>7.05</strong> and a median composite score of <strong>5.592</strong>.</p>
+            <p>The procedure to find the composite score is outlined in the Portfolio Context</p>
+            <p>As seen below the scatter plot of the composite score as well as the corresponding cost of the housing in the listing.</p>
+            <div class="image-container">
+                <img src="New York Cost vs. Composite.png" alt="Graph Example">
+            </div>
+
+            <p>Correl value between the listing price and the composite score resulted in <strong>0.5229</strong>.</p>
+            <ul>
+                <li>A value of <strong>0.5229</strong> indicates a moderate positive correlation between the Composite Number and Cost.</li>
+                <li>This means that as the Composite Number increases, the Cost tends to increase as well, but not perfectly (there's some variability).</li>
+                <li>A moderate correlation like 0.5229 suggests that while the Composite Number partially explains the variation in Cost, there are likely other factors affecting price in New York City.</li>
+            </ul>
+
+            <p>This graph has a R<sup>2</sup> value of 0.273, meaning that approximately <strong>27.3% of the variation</strong> in Cost can be explained by the Composite Number. The remaining <strong>72.7% of the variation</strong> is due to other factors that are not captured by the Composite Number.</p>
+            <br></br>
+
+            <h3>Do listings with certain features on Redfin's website, like virtual walkthroughs or redesigns, correlate with higher prices?</h3>
+            <p>After data cleaning out of <strong>537</strong> listings <strong>8%</strong> are listed by Redfin, <strong>4%</strong> have the 3D walkthrough feature, <strongg>53%</strongg> have the Floor Plan feature, <strong>100%</strong> have the Street View feature, and <strong>0%</strong> have the Redesign feature.</p>
+            <div class="image-container">
+                <img src="New York Least Square.png" alt="Graph Example">
+            </div>
+            <p>After coducting a least squared test with the results above these results were found</p>
+            <ul>
+                <li>The coefficient of Listed by Redfin means that holding other variables constant, properties listed by Redfin are associated with an average increase in cost by <strong>$883,000</strong>. However, the high p-value (0.096) suggests this is <strong>not statistically significant.</strong></li>
+                <li>The coefficient of 3D walkthrough means that properties with a 3D Walkthrough are associated with a decrease in cost by <strong>$993,700</strong>, on average, holding other variables constant. Again, the high p-value (0.182) means this relationship is <strong>not statistically significant</strong>.</li>
+                <li>The coefficient of Floor Plans means properties with a floor plan are associated with an average <strong>$1,194,000</strong> increase in cost. The p-value (0.000) shows this relationship is <strong>highly significant</strong>.</li>
+                <li>The coefficient of Street View menas that properties with a street view are associated with an average <strong>$1,891,000</strong> increase in cost. The p-value (0.000) confirms this is also <strong>highly significant</strong>.</li>
+                <li>The coefficient of Redesign is <strong>0</strong> because there are no listings in this dataset with that feature, so no conclusion could be made off this.</li>
+            </ul>
+        </section>
+    </div>
 
     <footer>
         <p>&copy; 2025 Brandon Lin. All rights reserved.</p>
