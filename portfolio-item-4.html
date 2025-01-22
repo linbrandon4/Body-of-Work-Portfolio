@@ -51,15 +51,15 @@
             <h3>Do listings with certain features on Redfin's website, like virtual walkthroughs or redesigns, correlate with higher prices?</h3>
             <p>After data cleaning out of <strong>306</strong> listings <strong>1.31%</strong> are listed by Redfin, <strong>30.82%</strong> have the 3D walkthrough feature, <strongg>37.70%</strongg> have the Floor Plan feature, <strong>99.91%</strong> have the Street View feature, and <strong>8.85%</strong> have the Redesign feature.</p>
             <div class="image-container">
-                <img src="New York Least Square.png" alt="Graph Example">
+                <img src="Screenshot 2025-01-22 133258.png" alt="Graph Example">
             </div>
             <p>After coducting a least squared test with the results above these results were found</p>
             <ul>
-                <li>The coefficient of Listed by Redfin means that holding other variables constant, properties listed by Redfin are associated with an average increase in cost by <strong>$883,000</strong>. However, the high p-value (0.096) suggests this is <strong>not statistically significant.</strong></li>
-                <li>The coefficient of 3D walkthrough means that properties with a 3D Walkthrough are associated with a decrease in cost by <strong>$993,700</strong>, on average, holding other variables constant. Again, the high p-value (0.182) means this relationship is <strong>not statistically significant</strong>.</li>
-                <li>The coefficient of Floor Plans means properties with a floor plan are associated with an average <strong>$1,194,000</strong> increase in cost. The p-value (0.000) shows this relationship is <strong>highly significant</strong>.</li>
-                <li>The coefficient of Street View menas that properties with a street view are associated with an average <strong>$1,891,000</strong> increase in cost. The p-value (0.000) confirms this is also <strong>highly significant</strong>.</li>
-                <li>The coefficient of Redesign is <strong>0</strong> because there are no listings in this dataset with that feature, so no conclusion could be made off this.</li>
+                <li>The coefficient of Listed by Redfin means that holding other variables constant, properties listed by Redfin are associated with an average decrease in cost by <strong>$946,400</strong>. The p-value (0.000) suggests this is <strong>highly statistically significant.</strong></li>
+                <li>The coefficient of 3D walkthrough means that properties with a 3D Walkthrough are associated with a increase in cost by <strong>$17,990</strong>, on average, holding other variables constant. The high p-value (0.948) means this relationship is <strong>not statistically significant</strong>.</li>
+                <li>The coefficient of Floor Plans means properties with a floor plan are associated with an average <strong>$105,800</strong> decrease in cost. The p-value (0.000) shows this relationship is <strong>highly significant</strong>.</li>
+                <li>The coefficient of Street View menas that properties with a street view are associated with an average <strong>$1,601,000</strong> increase in cost. The p-value (0.000) confirms this is also <strong>highly significant</strong>.</li>
+                <li>This means that, on average, properties marked with a redesign (when Redeisgn = 1) are associated with an increase in cost by <strong>$184,500</strong> compared to properties without a redesign (when Redeisgn = 0), holding all other variables constant. The p-value of 0.802 is not significant (>0.05), meaning the observed increase in cost is <strong>not significant</strong>.</li>
             </ul>
         </section>
     </div>
